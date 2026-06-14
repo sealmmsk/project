@@ -1,4 +1,3 @@
-require('./agents');
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -13,6 +12,10 @@ const taskRoutes = require('./routes/taskRoutes');
 const statsRoutes = require('./routes/statsRoutes');
 const reportsRoutes = require('./routes/reportsRoutes');
 
+// Инициализация мультиагентного слоя
+require('./agents');
+
+// Создаём приложение Express
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -54,7 +57,6 @@ const start = async () => {
     await sequelize.authenticate();
     console.log('✅ База данных подключена');
 
-    // Синхронизация моделей (создание/обновление таблиц)
     await sequelize.sync({ alter: true });
     console.log('✅ Модели синхронизированы');
 

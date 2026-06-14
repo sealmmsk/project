@@ -11,3 +11,6 @@ const student = new StudentAgent();
 const content = new ContentAgent();
 
 module.exports = { coordinator };
+
+console.log('🚀 Мультиагентная система инициализирована:');
+console.log('   - Coordinator, Tutor, Student, Content');
